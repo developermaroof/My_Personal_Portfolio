@@ -1,10 +1,14 @@
 import React from "react";
+// motion
+// import { motion } from "framer-motion";
+// variants
+// import { fadeIn } from "../variants";
 
 const Contact = () => {
   return (
-    <div className="section" id="contact">
-      Contact
-    </div>
+    <section className="section" id="contact">
+      <div>Contact</div>
+    </section>
   );
 };
 
