@@ -27,8 +27,8 @@ const About = () => {
             viewport={{ once: false, amount: 0.3 }}
             className="flex-1">
             <h2 className="h2 text-accent">About me.</h2>
-            <h3 className="h3 mb-4">I'm a Freelance Front-end Developer with over 2 years of experience.</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, vel officiis? Quos, sapiente! Officiis, corrupti. Nulla numquam vero eligendi dicta.</p>
+            <h3 className="h3 mb-4">I'm a Front-end Developer with over 3 years of experience.</h3>
+            <p>As a dedicated frontend developer with expertise in UI/UX design, I bring a blend of creativity and technical skill to every project. My journey includes hands-on experience across various industries, which has shaped my approach to creating seamless, user-centered digital experiences.</p>
             {/* stats */}
             <div className="flex gap-x-6 lg:gap-x-10 mb-12">
               <div>

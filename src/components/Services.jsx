@@ -1,29 +1,31 @@
 import React from "react";
-// icon
-import { BsArrowUpRight } from "react-icons/bs";
 // motion
 import { motion } from "framer-motion";
 // variants
 import { fadeIn } from "../variants";
 
-// services data
+import UIUXIcon from "../assets/ui-ux.png"
+import Frontend from "../assets/front-end-programming.png"
+import Web from "../assets/application.png"
+
+// services data with images
 const services = [
   {
     name: "UI/UX Development",
-    description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-    link: "Learn more",
+    description: "Creating intuitive, visually engaging interfaces that prioritize user experience and accessibility. My approach ensures each design resonates with its audience while meeting project goals.",
+    image: UIUXIcon,
   },
   {
     name: "Frontend Development",
-    description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-    link: "Learn more",
+    description: "Developing responsive, high-performance websites and applications using modern technologies, ensuring a seamless experience across all devices.",
+    image: Frontend, 
   },
   {
     name: "Web Application Development",
-    description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-    link: "Learn more",
+    description: "Building interactive, scalable web applications tailored to meet unique business needs and optimize user engagement.",
+    image: Web, 
   },
-]
+];
 
 const Services = () => {
   return (
@@ -32,40 +34,41 @@ const Services = () => {
         <div className="flex flex-col lg:flex-row">
           {/* text & image */}
           <motion.div 
-          variants={fadeIn("right", 0.3)}
-          initial="hidden"
-          whileInView={'show'}
-          viewport={{ once: false, amount: 0.3 }}
-          className="flex-1 lg:bg-services lg:bg-bottom bg-no-repeat 
-          mix-blend-lighten mb-12 lg:mb-0">
+            variants={fadeIn("right", 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.3 }}
+            className="flex-1 lg:mr-4 lg:bg-services lg:bg-contain lg:bg-bottom bg-no-repeat mix-blend-lighten mb-12 lg:mb-10"
+          >
             <h2 className="h2 text-accent mb-6">What I Do.</h2>
-            <h3 className="h3 max-w-[455px] mb-16">I'm a Freelance Front-end Developer with over 2 years of experience.</h3>
-            <button className="btn btn-sm">See my work</button>
+            <h3 className="h3 max-w-[455px]">I'm a Front-end Developer with over 3 years of experience.</h3>
+            <button className="btn btn-sm xl:hidden">See my work</button>
           </motion.div>
           {/* services */}
           <motion.div 
-          variants={fadeIn("left", 0.5)}
-          initial="hidden"
-          whileInView={'show'}
-          viewport={{ once: false, amount: 0.3 }}
-          className="flex-1">
+            variants={fadeIn("left", 0.5)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.3 }}
+            className="flex-1"
+          >
             {/* service list */}
             <div>
               {services.map((service, index) => {
-                // destructure service
-                const { name, description, link } = service;
+                const { name, description, image } = service;
                 return (
                   <div className="border-b border-white/20 h-[146px] mb-[36px] flex" key={index}>
                     <div className="max-w-[476px]">
-                      <h4 className="text-[20px] tracking-winder font-primary font-semibold mb-6">{name}</h4>
+                      <h4 className="text-[20px] tracking-wider font-primary font-semibold mb-6">{name}</h4>
                       <p className="font-secondary leading-tight">{description}</p>
                     </div>
                     <div className="flex flex-col flex-1 items-end">
-                      <a href="/" className="btn w-9 h-9 mb-[42px] flex justify-center items-center"><BsArrowUpRight /></a>
-                      <a href="/" className="text-gradient text-sm">{link}</a>
+                      <div className="btn w-10 h-10 mb-[42px] flex justify-center items-center">
+                        <img src={image} alt={`${name} icon`} className="w-6 h-6 object-contain" />
+                      </div>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </motion.div>

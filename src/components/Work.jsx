@@ -31,7 +31,7 @@ const Work = () => {
                 available, but the majority have suffered alteration 
                 in some form
               </p>
-              <button className="btn btn-sm">View all projects</button>
+              <button className="btn btn-sm">Projects</button>
             </div>
             {/* image 1 */}
             <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">

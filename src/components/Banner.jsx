@@ -1,7 +1,4 @@
 import React from "react";
-
-// images
-import image from "../assets/avatar.svg";
 // icons
 import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 // type animation
@@ -17,7 +14,7 @@ const Banner = () => {
       <div className="container mx-auto">
         <div className="flex flex-col gap-y-8 lg:flex-row lg:items-center lg:gap-x-12">
           {/* text */}
-          <div className="flex-1 text-center font-secondary lg:text-left">
+          <div className="text-center font-secondary lg:text-left">
             <motion.h1
               variants={fadeIn("up", 0.3)}
               initial="hidden"
@@ -54,9 +51,10 @@ const Banner = () => {
               whileInView={'show'}
               viewport={{ once: false, amount: 0.7 }}
               className="mb-8 max-w-lg mx-auto lg:mx-0">
-              A seasoned web developer with 70+ completed projects, specializing in
-              UI/UX design. Deliver high-quality, innovative solutions, setting a
-              standard for excellence in every project.
+              With over 3 years of experience and 75+ successfully completed projects, 
+              I specialize in UI/UX design and frontend development, 
+              delivering high-quality, 
+              innovative solutions with a commitment to excellence in every project.
             </motion.p>
             <motion.div 
               variants={fadeIn("up", 0.6)}
@@ -88,14 +86,6 @@ const Banner = () => {
               </a>
             </motion.div>
           </div>
-          {/* image */}
-          <motion.div 
-            variants={fadeIn("down", 0.5)}
-            initial="hidden"
-            whileInView={'show'}
-            className="hidden lg:flex flex-1 max-w-[320px] lg:max-w-[482px]">
-            <img src={image} alt="" />
-          </motion.div>
         </div>
       </div>
     </section>
