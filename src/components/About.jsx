@@ -3,6 +3,7 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
+import { Link } from "react-scroll";
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -11,14 +12,14 @@ const About = () => {
   return (
     <section className="section" id="about" ref={ref}>
       <div className="container mx-auto">
-        <div className="flex flex-col gap-y-10 lg:flex-row lg:items-center lg:gap-x-20 lg:gap-y-0 h-screen">
+        <div className="flex flex-col  gap-y-10 lg:flex-row lg:items-center lg:gap-x-20 lg:gap-y-0 h-screen">
           {/* img */}
           <motion.div
           variants={fadeIn("right", 0.3)}
           initial="hidden"
           whileInView={'show'}
           viewport={{ once: false, amount: 0.3 }}
-          className="flex-1 bg-about bg-contain bg-no-repeat h-[640px] mix-blend-lighten bg-top"></motion.div>
+          className="flex-1 bg-about bg-cover bg-no-repeat h-[640px] mix-blend-lighten bg-top"></motion.div>
           {/* text */}
           <motion.div 
             variants={fadeIn("left", 0.5)}
@@ -53,8 +54,10 @@ const About = () => {
             </div>
             {/* button */}
             <div className="flex gap-x-8 items-center">
-              <button className="btn btn-lg">Contact me</button>
-              <a href="/" className="text-gradient btn-link">My Portfolio</a>
+              <Link to="contact">
+                <button className="btn btn-lg">Contact me</button>
+              </Link>
+              <span className="text-gradient btn-link">My Portfolio</span>
             </div>
             {/*  */}
           </motion.div>

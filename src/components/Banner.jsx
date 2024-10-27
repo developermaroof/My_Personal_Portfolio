@@ -7,6 +7,7 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 // variants
 import { fadeIn } from "../variants";
+import { Link } from "react-scroll";
 
 const Banner = () => {
   return (
@@ -62,8 +63,10 @@ const Banner = () => {
               whileInView={'show'}
               viewport={{ once: false, amount: 0.7 }}
               className="flex max-w-max gap-x-6 items-center mb-12 mx-auto lg:mx-0">
-              <button className="btn btn-lg">Contact me</button>
-              <a href="/" className="text-gradient btn-link">My Portfolio</a>
+              <Link to="contact">
+                <button className="btn btn-lg">Contact me</button>
+              </Link>
+              <Link to="about" className="cursor-pointer text-gradient btn-link">My Portfolio</Link>
             </motion.div>
             {/* socials */}
             <motion.div 
@@ -72,16 +75,16 @@ const Banner = () => {
               whileInView={'show'}
               viewport={{ once: false, amount: 0.7 }}
               className="flex text-[20px] gap-x-6 max-w-max mx-auto lg:mx-0">
-              <a href="/">
+              <a href="https://github.com/developermaroof">
                 <FaGithub />
               </a>
-              <a href="/">
+              <a href="https://www.linkedin.com/in/developermaroof/">
                 <FaLinkedin />
               </a>
-              <a href="/">
+              <a href="https://www.facebook.com/developermaroofpage/">
                 <FaFacebook />
               </a>
-              <a href="/">
+              <a href="https://www.instagram.com/developer_maroof/">
                 <FaInstagram />
               </a>
             </motion.div>

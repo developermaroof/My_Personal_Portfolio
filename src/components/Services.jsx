@@ -7,6 +7,7 @@ import { fadeIn } from "../variants";
 import UIUXIcon from "../assets/ui-ux.png"
 import Frontend from "../assets/front-end-programming.png"
 import Web from "../assets/application.png"
+import { Link } from "react-scroll";
 
 // services data with images
 const services = [
@@ -42,7 +43,10 @@ const Services = () => {
           >
             <h2 className="h2 text-accent mb-6">What I Do.</h2>
             <h3 className="h3 max-w-[455px]">I'm a Front-end Developer with over 3 years of experience.</h3>
-            <button className="btn btn-sm xl:hidden">See my work</button>
+            <Link to="work">
+              <button className="btn btn-sm xl:hidden">See my work</button>
+            </Link>
+            
           </motion.div>
           {/* services */}
           <motion.div 
