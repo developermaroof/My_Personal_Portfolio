@@ -1,11 +1,9 @@
-import React from "react";
-// motion
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-// variants
 import { fadeIn } from "../variants";
-// 
 import { FaGithub } from "react-icons/fa6";
 import { TbExternalLink } from "react-icons/tb";
+
 // images
 import Portfolio from "../assets/projects/portfolio.png"
 import Portfolio1 from "../assets/projects/portfolio1.png"
@@ -24,420 +22,100 @@ import FoodPanda from "../assets/projects/foodPanda.png"
 import HairSaloon from "../assets/projects/hairSaloon.png"
 import NokoSocial from "../assets/projects/nokoSocial.png"
 import University from "../assets/projects/university.png"
+import Manage from "../assets/projects/manage.png"
+
+const images = [
+  { src: Portfolio1, title: "Modern Portfolio", tech: "ReactJS, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: Dashboard1, title: "Admin Dashboard", tech: "ReacAtJS, SASS/SCSS, Firebase", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: GPT, title: "GPT3 Webiste", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: Restaurant, title: "Gericht Restaurant", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: HairSaloon, title: "Hair Studio", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: Manage, title: "Management Dashboard", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: Ecommerce1, title: "RedStote", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: Ecommerce, title: "Cara", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: NokoSocial, title: "Noko Social", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: RecipeApp, title: "Recipe App", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: RecipeApp2, title: "Recipes", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: BlogWeb, title: "TechBerg", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: DevnitoV1, title: "Devnito V1", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: University, title: "EduFord", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: Portfolio, title: "Daily", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: Portfolio2, title: "Portfolio Design", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: FoodPanda, title: "Food Panda", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { src: Books, title: "Books", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+];
 
 const Work = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4; // Display 4 items per page for example
+
+  // Calculate pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = images.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Pagination Controls
+  const totalPages = Math.ceil(images.length / itemsPerPage);
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => (prev < totalPages ? prev + 1 : prev));
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prev) => (prev > 1 ? prev - 1 : prev));
+  };
+
   return (
     <section className="section h-full" id="work">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row gap-x-10">
-          <motion.div 
-            variants={fadeIn("right", 0.3)}
+          <motion.div
+            variants={fadeIn("up", 0.3)}
             initial="hidden"
-            whileInView={'show'}
+            whileInView={"show"}
             viewport={{ once: false, amount: 0.3 }}
-            className="flex flex-col flex-1 gap-y-12 mb-10 lg:mb-0">
-            {/* text */}
+            className="flex flex-col flex-1 gap-y-12 mb-10 lg:mb-0"
+          >
             <div>
               <h2 className="h2 leading-tight text-accent">
-                My Featured 
-                <br /> 
-                Projects.
+                My Featured <br />
+                Projects
               </h2>
               <p className="max-w-sm mb-6">
-              My recent work highlights my commitment to crafting responsive, user-friendly, and visually engaging web experiences. Each project focuses on delivering high-quality, functional design that meets user needs and enhances engagement.
+                My recent work highlights my commitment to crafting responsive, user-friendly, and visually engaging web experiences.
               </p>
-              <button className="btn btn-sm">Projects</button>
             </div>
-            {/* Images Starts */}
-
-            {/* image 1 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 object-cover transition-all duration-500" src={Portfolio1} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
+            {/* Image Buttons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {currentItems.map((item, index) => (
+                <button key={index} className="group relative overflow-hidden border-2 border-white/50 rounded-xl w-full">
+                  <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
+                  <img className="group-hover:scale-125 object-cover transition-all duration-500" src={item.src} alt={item.title} />
+                  
+                  <div className="absolute -bottom-full left-12 group-hover:bottom-24 transition-all duration-500 z-50">
+                    <span className="text-gradient">{item.title}</span>
+                  </div>
+                  
+                  <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
+                    <span className="text-xl text-white">{item.tech}</span>
+                  </div>
+                  
+                  <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
+                    <a href={item.github} target="_blank" rel="noreferrer"><FaGithub className="w-6 h-6" /></a>
+                    <a href={item.website} target="_blank" rel="noreferrer"><TbExternalLink className="w-6 h-6" /></a>
+                  </div>
+                </button>
+              ))}
             </div>
-            {/* image 2 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={Dashboard1} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
+            {/* Pagination Controls */}
+            <div className="flex justify-center mt-8">
+              <button onClick={handlePrevPage} className="btn btn-sm mr-4" disabled={currentPage === 1}>
+                Previous
+              </button>
+              <button onClick={handleNextPage} className="btn btn-sm" disabled={currentPage === totalPages}>
+                Next
+              </button>
             </div>
-            {/* image 3 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={GPT} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 4 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={Restaurant} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 5 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={Portfolio} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 6 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={Ecommerce} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 7 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={Ecommerce1} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 8 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={FoodPanda} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-
-            {/* Images Ends */}
-          </motion.div>
-          <motion.div
-            variants={fadeIn("left", 0.2)}
-            initial="hidden"
-            whileInView={'show'}
-            viewport={{ once: false, amount: 0.3 }}
-            className="flex-1 flex flex-col gap-y-10">
-            {/* Images Starts */}
-            
-            {/* image 10 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={DevnitoV1} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 11 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={University} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 12 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={Portfolio2} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 13 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={BlogWeb} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 14 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={NokoSocial} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 15 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={RecipeApp} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 16 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={RecipeApp2} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 17 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={Books} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            {/* image 18 */}
-            <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              {/* overlay */}
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-              {/* img */}
-              <img className="group-hover:scale-125 transition-all duration-500" src={HairSaloon} alt="" />
-              {/* pretitle */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-28 transition-all duration-500 z-50">
-                <span className="text-gradient">
-                  UI/UX Development
-                </span>
-              </div>
-              {/* title */}
-              <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                <span className="text-3xl text-white">Project Title</span>
-              </div>
-              {/* Buttons */}
-              <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                <a href="/"><FaGithub className="w-6 h-6"/></a> 
-                <a href="/"><TbExternalLink className="w-6 h-6"/></a>
-              </div>
-            </div>
-            
-
-            {/* Images Ends */}
           </motion.div>
         </div>
       </div>
