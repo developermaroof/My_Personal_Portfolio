@@ -30,7 +30,7 @@ const images = [
     title: "Modern Portfolio", 
     tech: "ReactJS, Bootstrap, Css", 
     github: "https://github.com/developermaroof/Developermaroof-Portfolio", 
-    website: "https://developermaroof.netlify.app/" 
+    website: "https://developermaroofv1.netlify.app/" 
   },
   { 
     src: Dashboard1,
