@@ -25,24 +25,132 @@ import University from "../assets/projects/university.png"
 import Manage from "../assets/projects/manage.png"
 
 const images = [
-  { src: Portfolio1, title: "Modern Portfolio", tech: "ReactJS, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: Dashboard1, title: "Admin Dashboard", tech: "ReacAtJS, SASS/SCSS, Firebase", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: GPT, title: "GPT3 Webiste", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: Restaurant, title: "Gericht Restaurant", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: HairSaloon, title: "Hair Studio", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: Manage, title: "Management Dashboard", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: Ecommerce1, title: "RedStote", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: Ecommerce, title: "Cara", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: NokoSocial, title: "Noko Social", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: RecipeApp, title: "Recipe App", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: RecipeApp2, title: "Recipes", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: BlogWeb, title: "TechBerg", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: DevnitoV1, title: "Devnito V1", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: University, title: "EduFord", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: Portfolio, title: "Daily", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: Portfolio2, title: "Portfolio Design", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: FoodPanda, title: "Food Panda", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
-  { src: Books, title: "Books", tech: "React, Bootstrap, Css", github: "https://developermaroof1.netlify.app/", website: "https://developermaroof1.netlify.app/" },
+  { 
+    src: Portfolio1, 
+    title: "Modern Portfolio", 
+    tech: "ReactJS, Bootstrap, Css", 
+    github: "https://github.com/developermaroof/Developermaroof-Portfolio", 
+    website: "https://developermaroof.netlify.app/" 
+  },
+  { 
+    src: Dashboard1,
+    title: "Admin Dashboard",
+    tech: "ReactJS, Sass/SCss, Firebase",
+    github: "https://github.com/developermaroof/Project-AdminPanel",
+    website: "https://devadminpanel.netlify.app/" 
+  },
+  { 
+    src: GPT, 
+    title: "GPT3 Webiste", 
+    tech: "ReactJS, Css", 
+    github: "https://github.com/developermaroof/Project_ReactGPT3", 
+    website: "https://devreactgpt3.netlify.app/" 
+  },
+  { 
+    src: Restaurant, 
+    title: "Gericht Restaurant", 
+    tech: "ReactJS, Css", 
+    github: "https://github.com/developermaroof/Project-GerichtRestaurant", 
+    website: "https://gerichtchineserestaurant.netlify.app/" 
+  },
+  { 
+    src: HairSaloon, 
+    title: "Hair Studio", 
+    tech: "HTML, Css, Javascript, Bootstrap", 
+    github: "https://github.com/developermaroof/Project-Hair-Studio", 
+    website: "https://hair-studio-developer-maroof.netlify.app/" 
+  },
+  { 
+    src: Manage, 
+    title: "Management Dashboard", 
+    tech: "HTML, Tailwind Css, Javascript", 
+    github: "https://github.com/developermaroof/Project-Tailwind-Css", 
+    website: "https://tailwind-css-developer-maroof.netlify.app/" 
+  },
+  { 
+    src: Ecommerce1, 
+    title: "RedStote", 
+    tech: "HTML, Css, Javascript, Bootstrap", 
+    github: "https://github.com/developermaroof/Project-Ecommerce", 
+    website: "https://ecommerce-developer-maroof.netlify.app/" 
+  },
+  { 
+    src: Ecommerce, 
+    title: "Cara", 
+    tech: "HTML, Css, Javascript", 
+    github: "https://github.com/developermaroof/Project-E-Commerce", 
+    website: "https://ecommerce-developermaroof.netlify.app/" 
+  },
+  { 
+    src: NokoSocial, 
+    title: "Noko Social", 
+    tech: "HTML, Css, Javascript", 
+    github: "https://github.com/developermaroof/Project-SocialMedia", 
+    website: "https://nokosocial-developermaroof.netlify.app/" 
+  },
+  { 
+    src: RecipeApp, 
+    title: "Recipe App", 
+    tech: "HTML, Css, Javascript, Edaman API", 
+    github: "https://github.com/developermaroof/Project-FoodRecipeApp", 
+    website: "https://worldfoodrecipes.netlify.app/" 
+  },
+  { 
+    src: RecipeApp2, 
+    title: "Recipes", 
+    tech: "ReactJS, Css, Bootstrap, TheMealDB API", 
+    github: "https://github.com/developermaroof/Project-MealApp", 
+    website: "https://my-meal.netlify.app/" 
+  },
+  { 
+    src: BlogWeb, 
+    title: "TechBerg", 
+    tech: "ReactJS, Css", 
+    github: "https://github.com/developermaroof/Project-TechBerg-Figma", 
+    website: "https://techbergweb.netlify.app/" 
+  },
+  { 
+    src: DevnitoV1, 
+    title: "Devnito V1", 
+    tech: "ReactJS, Tailwind Css, EmailJS", 
+    github: "https://github.com/developermaroof/Project-Devnito", 
+    website: "https://1stdevnito.netlify.app/" 
+  },
+  { 
+    src: University, 
+    title: "EduFord", 
+    tech: "HTML, Css, Javascript, Bootstrap", 
+    github: "https://github.com/developermaroof/Project-University", 
+    website: "https://university-developer-maroof.netlify.app/" 
+  },
+  { 
+    src: Portfolio, 
+    title: "Daily", 
+    tech: "HTML, Css, Javascript, Bootstrap", 
+    github: "https://github.com/developermaroof/Project-Portfolio", 
+    website: "https://portfolio-developer-maroof.netlify.app/#" 
+  },
+  { 
+    src: Portfolio2, 
+    title: "Portfolio Design", 
+    tech: "ReactJS, Sass/SCss, MUI", 
+    github: "https://github.com/developermaroof/Project-ReactPortfolio", 
+    website: "https://reactportfoliodev.netlify.app/" 
+  },
+  { 
+    src: FoodPanda, 
+    title: "Food Panda", 
+    tech: "HTML, Css", 
+    github: "https://github.com/developermaroof/Project-foodpanda", 
+    website: "https://foodpanda-developermaroof.netlify.app/" 
+  },
+  { 
+    src: Books, 
+    title: "Books", 
+    tech: "HTML, Css, Javascript, Bootstrap", 
+    github: "https://github.com/developermaroof/Project-Book-Store", 
+    website: "https://mybookstore-developermaroof.netlify.app/" 
+  },
 ];
 
 const Work = () => {
@@ -97,7 +205,7 @@ const Work = () => {
                   </div>
                   
                   <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                    <span className="text-xl text-white">{item.tech}</span>
+                    <span className="text-[14px] text-white md:text-[16px] lg:text-xl">{item.tech}</span>
                   </div>
                   
                   <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
