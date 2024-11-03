@@ -61,9 +61,13 @@ const About = () => {
               <Link to="contact" smooth={true} duration={500}>
                 <button className="btn btn-lg">Contact me</button>
               </Link>
-              <Link to="portfolio" smooth={true} duration={500} className="text-gradient btn-link">
-                My Portfolio
-              </Link>
+              <a
+                href="/Resume.pdf"
+                download
+                className="text-gradient btn-link"
+              >
+                Download Resume
+              </a>
             </div>
           </motion.div>
         </div>
