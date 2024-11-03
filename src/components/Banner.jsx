@@ -1,11 +1,7 @@
 import React from "react";
-// icons
 import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
-// type animation
 import { TypeAnimation } from "react-type-animation";
-// motion
 import { motion } from "framer-motion";
-// variants
 import { fadeIn } from "../variants";
 import { Link } from "react-scroll";
 
@@ -19,72 +15,78 @@ const Banner = () => {
             <motion.h1
               variants={fadeIn("up", 0.3)}
               initial="hidden"
-              whileInView={'show'}
+              whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="text-[55px] font-bold leading-[1] lg:text-[110px]">
+              className="text-[55px] font-bold leading-[1] lg:text-[110px]"
+            >
               Maroof <span>Qureshi</span>
             </motion.h1>
-            <motion.div 
+            <motion.div
               variants={fadeIn("up", 0.4)}
               initial="hidden"
-              whileInView={'show'}
+              whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="mb-6 text-[36px] lg:text-[60px] font-secondary 
-              font-semibold uppercase leading-[1]">
-            <span className="text-white mr-1">I am a </span>
-            <TypeAnimation sequence={[
-              "Frontend Developer.",
-              2000,
-              "Ui/Ux Developer.",
-              2000,
-              "Freelancer.",
-              2000,
-            ]}
-            speed={30}
-            className="text-accent"
-            wrapper="span"
-            repeat={Infinity}
-            />
+              className="mb-6 text-[36px] lg:text-[60px] font-secondary font-semibold uppercase leading-[1]"
+            >
+              <span className="text-white mr-1">I am a </span>
+              <TypeAnimation
+                sequence={[
+                  "Frontend Developer.",
+                  2000,
+                  "UI/UX Developer.",
+                  2000,
+                  "Freelancer.",
+                  2000,
+                ]}
+                speed={30}
+                className="text-accent"
+                wrapper="span"
+                repeat={Infinity}
+              />
             </motion.div>
-            <motion.p 
+            <motion.p
               variants={fadeIn("up", 0.5)}
               initial="hidden"
-              whileInView={'show'}
+              whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="mb-8 max-w-lg mx-auto lg:mx-0">
-              With over 3 years of experience and 75+ successfully completed projects, 
-              I specialize in UI/UX design and frontend development, 
-              delivering high-quality, 
-              innovative solutions with a commitment to excellence in every project.
+              className="mb-8 max-w-lg mx-auto lg:mx-0"
+            >
+              With over 3 years of experience and 75+ successfully completed projects,
+              I specialize in UI/UX design and frontend development,
+              delivering high-quality, innovative solutions with a commitment to excellence.
             </motion.p>
-            <motion.div 
+            <motion.div
               variants={fadeIn("up", 0.6)}
               initial="hidden"
-              whileInView={'show'}
+              whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="flex max-w-max gap-x-6 items-center mb-12 mx-auto lg:mx-0">
-              <Link to="contact">
+              className="flex max-w-max gap-x-6 items-center mb-12 mx-auto lg:mx-0"
+            >
+              <Link to="contact" smooth={true} duration={500}>
                 <button className="btn btn-lg">Contact me</button>
               </Link>
-              <Link to="about" className="cursor-pointer text-gradient btn-link">My Portfolio</Link>
+              <Link to="about" smooth={true} duration={500} className="cursor-pointer text-gradient btn-link">
+                My Portfolio
+              </Link>
             </motion.div>
             {/* socials */}
-            <motion.div 
+            <motion.div
               variants={fadeIn("up", 0.7)}
               initial="hidden"
-              whileInView={'show'}
+              whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="flex text-[20px] gap-x-6 max-w-max mx-auto lg:mx-0">
-              <a href="https://github.com/developermaroof">
+              className="flex text-[20px] gap-x-6 max-w-max mx-auto lg:mx-0"
+            >
+              <a href="https://github.com/developermaroof" aria-label="GitHub Profile">
                 <FaGithub />
               </a>
-              <a href="https://www.linkedin.com/in/developermaroof/">
+              <a href="https://www.linkedin.com/in/developermaroof/" aria-label="LinkedIn Profile">
                 <FaLinkedin />
               </a>
-              <a href="https://www.facebook.com/developermaroofpage/">
+              <a href="https://www.facebook.com/developermaroofpage/" aria-label="Facebook Page">
                 <FaFacebook />
               </a>
-              <a href="https://www.instagram.com/developer_maroof/">
+              <a href="https://www.instagram.com/developer_maroof/" aria-label="Instagram Profile">
                 <FaInstagram />
               </a>
             </motion.div>

@@ -1,40 +1,37 @@
-import React from "react";
-// motion
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-// variants
 import { fadeIn } from "../variants";
-
-import UIUXIcon from "../assets/ui-ux.png"
-import Frontend from "../assets/front-end-programming.png"
-import Web from "../assets/application.png"
 import { Link } from "react-scroll";
-
-// services data with images
-const services = [
-  {
-    name: "UI/UX Development",
-    description: "Creating intuitive, visually engaging interfaces that prioritize user experience and accessibility. My approach ensures each design resonates with its audience while meeting project goals.",
-    image: UIUXIcon,
-  },
-  {
-    name: "Frontend Development",
-    description: "Developing responsive, high-performance websites and applications using modern technologies, ensuring a seamless experience across all devices.",
-    image: Frontend, 
-  },
-  {
-    name: "Web Application Development",
-    description: "Building interactive, scalable web applications tailored to meet unique business needs and optimize user engagement.",
-    image: Web, 
-  },
-];
+import UIUXIcon from "../assets/ui-ux.png";
+import Frontend from "../assets/front-end-programming.png";
+import Web from "../assets/application.png";
 
 const Services = () => {
+  // Memoize static services data
+  const services = useMemo(() => [
+    {
+      name: "UI/UX Development",
+      description: "Creating intuitive, visually engaging interfaces that prioritize user experience and accessibility. My approach ensures each design resonates with its audience while meeting project goals.",
+      image: UIUXIcon,
+    },
+    {
+      name: "Frontend Development",
+      description: "Developing responsive, high-performance websites and applications using modern technologies, ensuring a seamless experience across all devices.",
+      image: Frontend,
+    },
+    {
+      name: "Web Application Development",
+      description: "Building interactive, scalable web applications tailored to meet unique business needs and optimize user engagement.",
+      image: Web,
+    },
+  ], []);
+
   return (
     <section className="section" id="services">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row">
           {/* text & image */}
-          <motion.div 
+          <motion.div
             variants={fadeIn("right", 0.3)}
             initial="hidden"
             whileInView="show"
@@ -46,34 +43,30 @@ const Services = () => {
             <Link to="work">
               <button className="btn btn-sm xl:hidden">See my work</button>
             </Link>
-            
           </motion.div>
+
           {/* services */}
-          <motion.div 
+          <motion.div
             variants={fadeIn("left", 0.5)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: false, amount: 0.3 }}
             className="flex-1"
           >
-            {/* service list */}
             <div>
-              {services.map((service, index) => {
-                const { name, description, image } = service;
-                return (
-                  <div className="border-b border-white/20 h-[146px] mb-[36px] flex" key={index}>
-                    <div className="max-w-[476px]">
-                      <h4 className="text-[20px] tracking-wider font-primary font-semibold mb-6">{name}</h4>
-                      <p className="font-secondary leading-tight">{description}</p>
-                    </div>
-                    <div className="flex flex-col flex-1 items-end">
-                      <div className="btn w-10 h-10 mb-[42px] flex justify-center items-center">
-                        <img src={image} alt={`${name} icon`} className="w-6 h-6 object-contain" />
-                      </div>
+              {services.map(({ name, description, image }) => (
+                <div className="border-b border-white/20 h-[146px] mb-[36px] flex" key={name}>
+                  <div className="max-w-[476px]">
+                    <h4 className="text-[20px] tracking-wider font-primary font-semibold mb-6">{name}</h4>
+                    <p className="font-secondary leading-tight">{description}</p>
+                  </div>
+                  <div className="flex flex-col flex-1 items-end">
+                    <div className="btn w-10 h-10 mb-[42px] flex justify-center items-center">
+                      <img src={image} alt={`${name} icon`} className="w-6 h-6 object-contain" />
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -82,4 +75,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default React.memo(Services);

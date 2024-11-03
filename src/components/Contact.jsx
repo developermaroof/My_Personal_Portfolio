@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Contact = () => {
+const Contact = React.memo(() => {
+  useEffect(() => {
+    // Initialize EmailJS only once
+    emailjs.init("Fdw9Lui_H7KZO3dgw");
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    emailjs.init("Fdw9Lui_H7KZO3dgw");
-
     const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const message = form.message.value;
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    // Simple validation
+    if (!name || !email || !message) {
+      toast.error("Please fill out all fields.");
+      return;
+    }
 
     try {
       const response = await emailjs.send(
@@ -26,18 +35,14 @@ const Contact = () => {
           message: message,
         }
       );
-      console.log("SUCCESS!", response.status, response.text);
-      
-      // Show success toast
-      toast.success("Your message has been sent!");
-      
-      // Clear form fields
+      console.log("Message sent successfully!", response.status, response.text);
+
+      // Show success toast and clear form
+      toast.success("Your message has been sent!", { autoClose: 5000 });
       form.reset();
     } catch (error) {
-      console.log("FAILED...", error, error.text);
-      
-      // Show error toast
-      toast.error("Failed to send message. Please try again.");
+      console.error("Message failed to send:", error);
+      toast.error("Failed to send message. Please try again later.", { autoClose: 5000 });
     }
   };
 
@@ -45,11 +50,11 @@ const Contact = () => {
     <section className="py-16 lg:section" id="contact">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row">
-          {/* text */}
+          {/* Text */}
           <motion.div
             variants={fadeIn("right", 0.3)}
             initial="hidden"
-            whileInView={"show"}
+            whileInView="show"
             viewport={{ once: false, amount: 0.3 }}
             className="flex-1 flex justify-start items-center"
           >
@@ -62,43 +67,46 @@ const Contact = () => {
               </h2>
             </div>
           </motion.div>
-          {/* form */}
+
+          {/* Form */}
           <motion.form
             variants={fadeIn("left", 0.3)}
             initial="hidden"
-            whileInView={"show"}
+            whileInView="show"
             viewport={{ once: false, amount: 0.3 }}
             onSubmit={handleSubmit}
             className="flex-1 border rounded-2xl flex flex-col gap-y-6 pb-24 p-6 items-start"
           >
             <input
-              className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white 
-            focus:border-accent transition-all"
+              className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
               type="text"
               name="name"
               placeholder="Your name"
+              aria-label="Your name"
             />
             <input
-              className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white 
-            focus:border-accent transition-all"
+              className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
               type="email"
               name="email"
               placeholder="Your email"
+              aria-label="Your email"
             />
             <textarea
-              className="bg-transparent border-b py-12 outline-none w-full placeholder:text-white 
-            focus:border-accent transition-all mb-12 resize-none"
+              className="bg-transparent border-b py-12 outline-none w-full placeholder:text-white focus:border-accent transition-all mb-12 resize-none"
               name="message"
               placeholder="Your message"
+              aria-label="Your message"
             ></textarea>
-            <button className="btn btn-lg">Send message</button>
+            <button type="submit" className="btn btn-lg">
+              Send message
+            </button>
           </motion.form>
         </div>
       </div>
-      {/* Toast container */}
+      {/* Toast Container */}
       <ToastContainer />
     </section>
   );
-};
+});
 
 export default Contact;

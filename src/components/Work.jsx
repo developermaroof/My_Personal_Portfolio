@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import { FaGithub } from "react-icons/fa6";
 import { TbExternalLink } from "react-icons/tb";
 
 // images
-import Portfolio from "../assets/projects/portfolio.png"
+import Portfolio from "../assets/projects/portfolio.png";
 import Portfolio1 from "../assets/projects/portfolio1.png"
 import Portfolio2 from "../assets/projects/portfolio2.png"
 import Dashboard1 from "../assets/projects/Dashboard1.png"
@@ -157,78 +157,81 @@ const Work = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4; // Display 4 items per page for example
 
-  // Calculate pagination
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = images.slice(indexOfFirstItem, indexOfLastItem);
-
-  // Pagination Controls
+  // Calculate total pages once
   const totalPages = Math.ceil(images.length / itemsPerPage);
 
-  const handleNextPage = () => {
-    setCurrentPage((prev) => (prev < totalPages ? prev + 1 : prev));
-  };
+  // Memoize currentItems to avoid recalculating on each render
+  const currentItems = useMemo(() => {
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    return images.slice(indexOfFirstItem, indexOfLastItem);
+  }, [currentPage, itemsPerPage]);
 
-  const handlePrevPage = () => {
+  // Memoize navigation functions
+  const handleNextPage = useCallback(() => {
+    setCurrentPage((prev) => (prev < totalPages ? prev + 1 : prev));
+  }, [totalPages]);
+
+  const handlePrevPage = useCallback(() => {
     setCurrentPage((prev) => (prev > 1 ? prev - 1 : prev));
-  };
+  }, []);
 
   return (
     <section className="section h-full" id="work">
-      <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row gap-x-10">
-          <motion.div
-            variants={fadeIn("up", 0.3)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.3 }}
-            className="flex flex-col flex-1 gap-y-12 mb-10 lg:mb-0"
-          >
-            <div>
-              <h2 className="h2 leading-tight text-accent">
-                My Featured <br />
-                Projects
-              </h2>
-              <p className="max-w-sm mb-6">
-                My recent work highlights my commitment to crafting responsive, user-friendly, and visually engaging web experiences.
-              </p>
-            </div>
-            {/* Image Buttons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {currentItems.map((item, index) => (
-                <button key={index} className="group relative overflow-hidden border-2 border-white/50 rounded-xl w-full">
-                  <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-                  <img className="group-hover:scale-125 object-cover transition-all duration-500" src={item.src} alt={item.title} />
-                  
-                  <div className="absolute -bottom-full left-12 group-hover:bottom-24 transition-all duration-500 z-50">
-                    <span className="text-gradient">{item.title}</span>
-                  </div>
-                  
-                  <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                    <span className="text-[14px] text-white md:text-[16px] lg:text-xl">{item.tech}</span>
-                  </div>
-                  
-                  <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                    <a href={item.github} target="_blank" rel="noreferrer"><FaGithub className="w-6 h-6" /></a>
-                    <a href={item.website} target="_blank" rel="noreferrer"><TbExternalLink className="w-6 h-6" /></a>
-                  </div>
-                </button>
-              ))}
-            </div>
-            {/* Pagination Controls */}
-            <div className="flex justify-center mt-8">
-              <button onClick={handlePrevPage} className="btn btn-sm mr-4" disabled={currentPage === 1}>
-                Previous
+    <div className="container mx-auto">
+      <div className="flex flex-col lg:flex-row gap-x-10">
+        <motion.div
+          variants={fadeIn("up", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.3 }}
+          className="flex flex-col flex-1 gap-y-12 mb-10 lg:mb-0"
+        >
+          <div>
+            <h2 className="h2 leading-tight text-accent">
+              My Featured <br />
+              Projects
+            </h2>
+            <p className="max-w-sm mb-6">
+              My recent work highlights my commitment to crafting responsive, user-friendly, and visually engaging web experiences.
+            </p>
+          </div>
+          {/* Image Buttons */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {currentItems.map((item, index) => (
+              <button key={index} className="group relative overflow-hidden border-2 border-white/50 rounded-xl w-full">
+                <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
+                <img className="group-hover:scale-125 object-cover transition-all duration-500" src={item.src} alt={item.title} loading="lazy" />
+                
+                <div className="absolute -bottom-full left-12 group-hover:bottom-24 transition-all duration-500 z-50">
+                  <span className="text-gradient">{item.title}</span>
+                </div>
+                
+                <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
+                  <span className="text-[14px] text-white md:text-[16px] lg:text-xl">{item.tech}</span>
+                </div>
+                
+                <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
+                  <a href={item.github} target="_blank" rel="noreferrer"><FaGithub className="w-6 h-6" /></a>
+                  <a href={item.website} target="_blank" rel="noreferrer"><TbExternalLink className="w-6 h-6" /></a>
+                </div>
               </button>
-              <button onClick={handleNextPage} className="btn btn-sm" disabled={currentPage === totalPages}>
-                Next
-              </button>
-            </div>
-          </motion.div>
-        </div>
+            ))}
+          </div>
+          {/* Pagination Controls */}
+          <div className="flex justify-center mt-8">
+            <button onClick={handlePrevPage} className="btn btn-sm mr-4" disabled={currentPage === 1}>
+              Previous
+            </button>
+            <button onClick={handleNextPage} className="btn btn-sm" disabled={currentPage === totalPages}>
+              Next
+            </button>
+          </div>
+        </motion.div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 };
 
 export default Work;
