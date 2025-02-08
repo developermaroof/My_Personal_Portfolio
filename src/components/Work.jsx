@@ -6,150 +6,158 @@ import { TbExternalLink } from "react-icons/tb";
 
 // images
 import Portfolio from "../assets/projects/portfolio.png";
-import Portfolio1 from "../assets/projects/portfolio1.png"
-import Portfolio2 from "../assets/projects/portfolio2.png"
-import Dashboard1 from "../assets/projects/Dashboard1.png"
-import Ecommerce from "../assets/projects/ecommerce.png"
-import Ecommerce1 from "../assets/projects/ecommerce2.png"
-import RecipeApp from "../assets/projects/recipeApp.png"
-import RecipeApp2 from "../assets/projects/recipeApp2.png"
-import DevnitoV1 from "../assets/projects/devnitov1.png"
-import BlogWeb from "../assets/projects/BlogWeb.png"
-import GPT from "../assets/projects/gpt.png"
-import Restaurant from "../assets/projects/restaurant.png"
-import Books from "../assets/projects/books.png"
-import FoodPanda from "../assets/projects/foodPanda.png"
-import HairSaloon from "../assets/projects/hairSaloon.png"
-import NokoSocial from "../assets/projects/nokoSocial.png"
-import University from "../assets/projects/university.png"
-import Manage from "../assets/projects/manage.png"
+import Portfolio1 from "../assets/projects/portfolio1.png";
+import Portfolio2 from "../assets/projects/portfolio2.png";
+import Dashboard1 from "../assets/projects/Dashboard1.png";
+import Ecommerce from "../assets/projects/ecommerce.png";
+import Ecommerce1 from "../assets/projects/ecommerce2.png";
+import RecipeApp from "../assets/projects/recipeApp.png";
+import RecipeApp2 from "../assets/projects/recipeApp2.png";
+import DevnitoV1 from "../assets/projects/devnitov1.png";
+import BlogWeb from "../assets/projects/BlogWeb.png";
+import GPT from "../assets/projects/gpt.png";
+import Restaurant from "../assets/projects/restaurant.png";
+import Books from "../assets/projects/books.png";
+import FoodPanda from "../assets/projects/foodPanda.png";
+import HairSaloon from "../assets/projects/hairSaloon.png";
+import NokoSocial from "../assets/projects/nokoSocial.png";
+import University from "../assets/projects/university.png";
+import Manage from "../assets/projects/manage.png";
+import devnito20 from "../assets/projects/devnito2.0.png";
 
 const images = [
-  { 
-    src: Portfolio1, 
-    title: "Modern Portfolio", 
-    tech: "ReactJS, Bootstrap, Css", 
-    github: "https://github.com/developermaroof/Developermaroof-Portfolio", 
-    website: "https://developermaroofv1.netlify.app/" 
+  {
+    src: Portfolio1,
+    title: "Modern Portfolio",
+    tech: "ReactJS, Bootstrap, Css",
+    github: "https://github.com/developermaroof/Developermaroof-Portfolio",
+    website: "https://developermaroofv1.netlify.app/",
   },
-  { 
+  {
     src: Dashboard1,
     title: "Admin Dashboard",
     tech: "ReactJS, Sass/SCss, Firebase",
     github: "https://github.com/developermaroof/Project-AdminPanel",
-    website: "https://devadminpanel.netlify.app/" 
+    website: "https://devadminpanel.netlify.app/",
   },
-  { 
-    src: GPT, 
-    title: "GPT3 Webiste", 
-    tech: "ReactJS, Css", 
-    github: "https://github.com/developermaroof/Project_ReactGPT3", 
-    website: "https://devreactgpt3.netlify.app/" 
+  {
+    src: GPT,
+    title: "GPT3 Webiste",
+    tech: "ReactJS, Css",
+    github: "https://github.com/developermaroof/Project_ReactGPT3",
+    website: "https://devreactgpt3.netlify.app/",
   },
-  { 
-    src: Restaurant, 
-    title: "Gericht Restaurant", 
-    tech: "ReactJS, Css", 
-    github: "https://github.com/developermaroof/Project-GerichtRestaurant", 
-    website: "https://gerichtchineserestaurant.netlify.app/" 
+  {
+    src: Restaurant,
+    title: "Gericht Restaurant",
+    tech: "ReactJS, Css",
+    github: "https://github.com/developermaroof/Project-GerichtRestaurant",
+    website: "https://gerichtchineserestaurant.netlify.app/",
   },
-  { 
-    src: HairSaloon, 
-    title: "Hair Studio", 
-    tech: "HTML, Css, Javascript, Bootstrap", 
-    github: "https://github.com/developermaroof/Project-Hair-Studio", 
-    website: "https://hair-studio-developer-maroof.netlify.app/" 
+  {
+    src: HairSaloon,
+    title: "Hair Studio",
+    tech: "HTML, Css, Javascript, Bootstrap",
+    github: "https://github.com/developermaroof/Project-Hair-Studio",
+    website: "https://hair-studio-developer-maroof.netlify.app/",
   },
-  { 
-    src: Manage, 
-    title: "Management Dashboard", 
-    tech: "HTML, Tailwind Css, Javascript", 
-    github: "https://github.com/developermaroof/Project-Tailwind-Css", 
-    website: "https://tailwind-css-developer-maroof.netlify.app/" 
+  {
+    src: Manage,
+    title: "Management Dashboard",
+    tech: "HTML, Tailwind Css, Javascript",
+    github: "https://github.com/developermaroof/Project-Tailwind-Css",
+    website: "https://tailwind-css-developer-maroof.netlify.app/",
   },
-  { 
-    src: Ecommerce1, 
-    title: "RedStote", 
-    tech: "HTML, Css, Javascript, Bootstrap", 
-    github: "https://github.com/developermaroof/Project-Ecommerce", 
-    website: "https://ecommerce-developer-maroof.netlify.app/" 
+  {
+    src: Ecommerce1,
+    title: "RedStote",
+    tech: "HTML, Css, Javascript, Bootstrap",
+    github: "https://github.com/developermaroof/Project-Ecommerce",
+    website: "https://ecommerce-developer-maroof.netlify.app/",
   },
-  { 
-    src: Ecommerce, 
-    title: "Cara", 
-    tech: "HTML, Css, Javascript", 
-    github: "https://github.com/developermaroof/Project-E-Commerce", 
-    website: "https://ecommerce-developermaroof.netlify.app/" 
+  {
+    src: Ecommerce,
+    title: "Cara",
+    tech: "HTML, Css, Javascript",
+    github: "https://github.com/developermaroof/Project-E-Commerce",
+    website: "https://ecommerce-developermaroof.netlify.app/",
   },
-  { 
-    src: NokoSocial, 
-    title: "Noko Social", 
-    tech: "HTML, Css, Javascript", 
-    github: "https://github.com/developermaroof/Project-SocialMedia", 
-    website: "https://nokosocial-developermaroof.netlify.app/" 
+  {
+    src: NokoSocial,
+    title: "Noko Social",
+    tech: "HTML, Css, Javascript",
+    github: "https://github.com/developermaroof/Project-SocialMedia",
+    website: "https://nokosocial-developermaroof.netlify.app/",
   },
-  { 
-    src: RecipeApp, 
-    title: "Recipe App", 
-    tech: "HTML, Css, Javascript, Edaman API", 
-    github: "https://github.com/developermaroof/Project-FoodRecipeApp", 
-    website: "https://worldfoodrecipes.netlify.app/" 
+  {
+    src: RecipeApp,
+    title: "Recipe App",
+    tech: "HTML, Css, Javascript, Edaman API",
+    github: "https://github.com/developermaroof/Project-FoodRecipeApp",
+    website: "https://worldfoodrecipes.netlify.app/",
   },
-  { 
-    src: RecipeApp2, 
-    title: "Recipes", 
-    tech: "ReactJS, Css, Bootstrap, TheMealDB API", 
-    github: "https://github.com/developermaroof/Project-MealApp", 
-    website: "https://my-meal.netlify.app/" 
+  {
+    src: RecipeApp2,
+    title: "Recipes",
+    tech: "ReactJS, Css, Bootstrap, TheMealDB API",
+    github: "https://github.com/developermaroof/Project-MealApp",
+    website: "https://my-meal.netlify.app/",
   },
-  { 
-    src: BlogWeb, 
-    title: "TechBerg", 
-    tech: "ReactJS, Css", 
-    github: "https://github.com/developermaroof/Project-TechBerg-Figma", 
-    website: "https://techbergweb.netlify.app/" 
+  {
+    src: BlogWeb,
+    title: "TechBerg",
+    tech: "ReactJS, Css",
+    github: "https://github.com/developermaroof/Project-TechBerg-Figma",
+    website: "https://techbergweb.netlify.app/",
   },
-  { 
-    src: DevnitoV1, 
-    title: "Devnito V1", 
-    tech: "ReactJS, Tailwind Css, EmailJS", 
-    github: "https://github.com/developermaroof/Project-Devnito", 
-    website: "https://1stdevnito.netlify.app/" 
+  {
+    src: DevnitoV1,
+    title: "Devnito V1",
+    tech: "ReactJS, Tailwind Css, EmailJS",
+    github: "https://github.com/developermaroof/Project-Devnito",
+    website: "https://1stdevnito.netlify.app/",
   },
-  { 
-    src: University, 
-    title: "EduFord", 
-    tech: "HTML, Css, Javascript, Bootstrap", 
-    github: "https://github.com/developermaroof/Project-University", 
-    website: "https://university-developer-maroof.netlify.app/" 
+  {
+    src: University,
+    title: "EduFord",
+    tech: "HTML, Css, Javascript, Bootstrap",
+    github: "https://github.com/developermaroof/Project-University",
+    website: "https://university-developer-maroof.netlify.app/",
   },
-  { 
-    src: Portfolio, 
-    title: "Daily", 
-    tech: "HTML, Css, Javascript, Bootstrap", 
-    github: "https://github.com/developermaroof/Project-Portfolio", 
-    website: "https://portfolio-developer-maroof.netlify.app/#" 
+  {
+    src: Portfolio,
+    title: "Daily",
+    tech: "HTML, Css, Javascript, Bootstrap",
+    github: "https://github.com/developermaroof/Project-Portfolio",
+    website: "https://portfolio-developer-maroof.netlify.app/#",
   },
-  { 
-    src: Portfolio2, 
-    title: "Portfolio Design", 
-    tech: "ReactJS, Sass/SCss, MUI", 
-    github: "https://github.com/developermaroof/Project-ReactPortfolio", 
-    website: "https://reactportfoliodev.netlify.app/" 
+  {
+    src: Portfolio2,
+    title: "Portfolio Design",
+    tech: "ReactJS, Sass/SCss, MUI",
+    github: "https://github.com/developermaroof/Project-ReactPortfolio",
+    website: "https://reactportfoliodev.netlify.app/",
   },
-  { 
-    src: FoodPanda, 
-    title: "Food Panda", 
-    tech: "HTML, Css", 
-    github: "https://github.com/developermaroof/Project-foodpanda", 
-    website: "https://foodpanda-developermaroof.netlify.app/" 
+  {
+    src: FoodPanda,
+    title: "Food Panda",
+    tech: "HTML, Css",
+    github: "https://github.com/developermaroof/Project-foodpanda",
+    website: "https://foodpanda-developermaroof.netlify.app/",
   },
-  { 
-    src: Books, 
-    title: "Books", 
-    tech: "HTML, Css, Javascript, Bootstrap", 
-    github: "https://github.com/developermaroof/Project-Book-Store", 
-    website: "https://mybookstore-developermaroof.netlify.app/" 
+  {
+    src: Books,
+    title: "Books",
+    tech: "HTML, Css, Javascript, Bootstrap",
+    github: "https://github.com/developermaroof/Project-Book-Store",
+    website: "https://mybookstore-developermaroof.netlify.app/",
+  },
+  {
+    src: devnito20,
+    title: "Devnito 2.0",
+    tech: "React.js, Tailwind CSS",
+    github: "https://github.com/developermaroof/devnito2.0",
+    website: "https://devnito.netlify.app/",
   },
 ];
 
@@ -178,60 +186,83 @@ const Work = () => {
 
   return (
     <section className="section h-full" id="work">
-    <div className="container mx-auto">
-      <div className="flex flex-col lg:flex-row gap-x-10">
-        <motion.div
-          variants={fadeIn("up", 0.3)}
-          initial="hidden"
-          whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
-          className="flex flex-col flex-1 gap-y-12 mb-10 lg:mb-0"
-        >
-          <div>
-            <h2 className="h2 leading-tight text-accent">
-              My Featured <br />
-              Projects
-            </h2>
-            <p className="max-w-sm mb-6">
-              My recent work highlights my commitment to crafting responsive, user-friendly, and visually engaging web experiences.
-            </p>
-          </div>
-          {/* Image Buttons */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {currentItems.map((item, index) => (
-              <button key={index} className="group relative overflow-hidden border-2 border-white/50 rounded-xl w-full">
-                <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
-                <img className="group-hover:scale-125 object-cover transition-all duration-500" src={item.src} alt={item.title} loading="lazy" />
-                
-                <div className="absolute -bottom-full left-12 group-hover:bottom-24 transition-all duration-500 z-50">
-                  <span className="text-gradient">{item.title}</span>
-                </div>
-                
-                <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
-                  <span className="text-[14px] text-white md:text-[16px] lg:text-xl">{item.tech}</span>
-                </div>
-                
-                <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
-                  <a href={item.github} target="_blank" rel="noreferrer"><FaGithub className="w-6 h-6" /></a>
-                  <a href={item.website} target="_blank" rel="noreferrer"><TbExternalLink className="w-6 h-6" /></a>
-                </div>
+      <div className="container mx-auto">
+        <div className="flex flex-col lg:flex-row gap-x-10">
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.3 }}
+            className="flex flex-col flex-1 gap-y-12 mb-10 lg:mb-0"
+          >
+            <div>
+              <h2 className="h2 leading-tight text-accent">
+                My Featured <br />
+                Projects
+              </h2>
+              <p className="max-w-sm mb-6">
+                My recent work highlights my commitment to crafting responsive,
+                user-friendly, and visually engaging web experiences.
+              </p>
+            </div>
+            {/* Image Buttons */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {currentItems.map((item, index) => (
+                <button
+                  key={index}
+                  className="group relative overflow-hidden border-2 border-white/50 rounded-xl w-full"
+                >
+                  <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
+                  <img
+                    className="group-hover:scale-125 object-cover transition-all duration-500"
+                    src={item.src}
+                    alt={item.title}
+                    loading="lazy"
+                  />
+
+                  <div className="absolute -bottom-full left-12 group-hover:bottom-24 transition-all duration-500 z-50">
+                    <span className="text-gradient">{item.title}</span>
+                  </div>
+
+                  <div className="absolute -bottom-full left-12 group-hover:bottom-16 transition-all duration-700 z-50">
+                    <span className="text-[14px] text-white md:text-[16px] lg:text-xl">
+                      {item.tech}
+                    </span>
+                  </div>
+
+                  <div className="absolute flex gap-4 -bottom-full left-12 group-hover:bottom-8 transition-all duration-700 z-50">
+                    <a href={item.github} target="_blank" rel="noreferrer">
+                      <FaGithub className="w-6 h-6" />
+                    </a>
+                    <a href={item.website} target="_blank" rel="noreferrer">
+                      <TbExternalLink className="w-6 h-6" />
+                    </a>
+                  </div>
+                </button>
+              ))}
+            </div>
+            {/* Pagination Controls */}
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={handlePrevPage}
+                className="btn btn-sm mr-4"
+                disabled={currentPage === 1}
+              >
+                Previous
               </button>
-            ))}
-          </div>
-          {/* Pagination Controls */}
-          <div className="flex justify-center mt-8">
-            <button onClick={handlePrevPage} className="btn btn-sm mr-4" disabled={currentPage === 1}>
-              Previous
-            </button>
-            <button onClick={handleNextPage} className="btn btn-sm" disabled={currentPage === totalPages}>
-              Next
-            </button>
-          </div>
-        </motion.div>
+              <button
+                onClick={handleNextPage}
+                className="btn btn-sm"
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 };
 
 export default Work;
