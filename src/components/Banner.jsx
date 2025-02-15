@@ -7,7 +7,10 @@ import { Link } from "react-scroll";
 
 const Banner = () => {
   return (
-    <section className="min-h-[85vh] lg:min-h-[78vh] flex items-center" id="home">
+    <section
+      className="min-h-[85vh] lg:min-h-[78vh] flex items-center"
+      id="home"
+    >
       <div className="container mx-auto">
         <div className="flex flex-col gap-y-8 lg:flex-row lg:items-center lg:gap-x-12">
           {/* text */}
@@ -31,11 +34,11 @@ const Banner = () => {
               <span className="text-white mr-1">I am a </span>
               <TypeAnimation
                 sequence={[
-                  "Frontend Developer.",
+                  "Full Stack Developer.",
                   2000,
-                  "UI/UX Developer.",
+                  "Mern Stack Developer.",
                   2000,
-                  "Freelancer.",
+                  "Software Engineer.",
                   2000,
                 ]}
                 speed={30}
@@ -51,9 +54,12 @@ const Banner = () => {
               viewport={{ once: false, amount: 0.7 }}
               className="mb-8 max-w-lg mx-auto lg:mx-0"
             >
-              With over 3 years of experience and 75+ successfully completed projects,
-              I specialize in UI/UX design and frontend development,
-              delivering high-quality, innovative solutions with a commitment to excellence.
+              With over three years of experience and a portfolio of 75+
+              successful projects. Specializing in end-to-end web solutions, I
+              combine expertise in frontend development with newly acquired
+              backend proficiency in Next.js, RESTful API development, and
+              MongoDB integration. Known for delivering user-centric,
+              performance-optimized applications.
             </motion.p>
             <motion.div
               variants={fadeIn("up", 0.6)}
@@ -65,7 +71,12 @@ const Banner = () => {
               <Link to="contact" smooth={true} duration={500}>
                 <button className="btn btn-lg">Contact me</button>
               </Link>
-              <Link to="about" smooth={true} duration={500} className="cursor-pointer text-gradient btn-link">
+              <Link
+                to="about"
+                smooth={true}
+                duration={500}
+                className="cursor-pointer text-gradient btn-link"
+              >
                 My Portfolio
               </Link>
             </motion.div>
@@ -77,16 +88,28 @@ const Banner = () => {
               viewport={{ once: false, amount: 0.7 }}
               className="flex text-[20px] gap-x-6 max-w-max mx-auto lg:mx-0"
             >
-              <a href="https://github.com/developermaroof" aria-label="GitHub Profile">
+              <a
+                href="https://github.com/developermaroof"
+                aria-label="GitHub Profile"
+              >
                 <FaGithub />
               </a>
-              <a href="https://www.linkedin.com/in/developermaroof/" aria-label="LinkedIn Profile">
+              <a
+                href="https://www.linkedin.com/in/developermaroof/"
+                aria-label="LinkedIn Profile"
+              >
                 <FaLinkedin />
               </a>
-              <a href="https://www.facebook.com/developermaroofpage/" aria-label="Facebook Page">
+              <a
+                href="https://www.facebook.com/developermaroofpage/"
+                aria-label="Facebook Page"
+              >
                 <FaFacebook />
               </a>
-              <a href="https://www.instagram.com/developer_maroof/" aria-label="Instagram Profile">
+              <a
+                href="https://www.instagram.com/developer_maroof/"
+                aria-label="Instagram Profile"
+              >
                 <FaInstagram />
               </a>
             </motion.div>

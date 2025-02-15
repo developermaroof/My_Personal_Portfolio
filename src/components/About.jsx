@@ -31,9 +31,16 @@ const About = () => {
             className="flex-1"
           >
             <h2 className="h2 text-accent">About me.</h2>
-            <h3 className="h3 mb-4">I'm a Front-end Developer with over 3 years of experience.</h3>
+            <h3 className="h3 mb-4">
+              I'm a Fullstack Developer with over 3 years of experience.
+            </h3>
             <p>
-              As a dedicated frontend developer with expertise in UI/UX design, I bring a blend of creativity and technical skill to every project. My journey includes hands-on experience across various industries, shaping my approach to creating seamless, user-centered digital experiences.
+              I combine expertise in frontend development with newly acquired
+              backend proficiency in Next.js, RESTful API development, and
+              MongoDB integration. Known for delivering user-centric,
+              performance-optimized applications, my work spans diverse
+              industries and international teams, showcasing my versatility and
+              commitment to bridging technical excellence with business needs.
             </p>
             {/* stats */}
             <div className="flex gap-x-6 lg:gap-x-10 mb-12">
@@ -41,7 +48,10 @@ const About = () => {
                 <div className="text-[40px] font-tertiary text-gradient my-2 pt-2">
                   {inView ? <CountUp start={0} end={3} duration={3} /> : null}
                 </div>
-                <div className="font-primary text-sm tracking-[2px]" aria-label="Years of Experience">
+                <div
+                  className="font-primary text-sm tracking-[2px]"
+                  aria-label="Years of Experience"
+                >
                   Years of <br />
                   Experience
                 </div>
@@ -50,7 +60,10 @@ const About = () => {
                 <div className="text-[40px] font-tertiary text-gradient my-2 pt-2">
                   {inView ? <CountUp start={0} end={75} duration={3} /> : null}+
                 </div>
-                <div className="font-primary text-sm tracking-[2px]" aria-label="Projects Completed">
+                <div
+                  className="font-primary text-sm tracking-[2px]"
+                  aria-label="Projects Completed"
+                >
                   Projects <br />
                   Completed
                 </div>
@@ -61,11 +74,7 @@ const About = () => {
               <Link to="contact" smooth={true} duration={500}>
                 <button className="btn btn-lg">Contact me</button>
               </Link>
-              <a
-                href="/Resume.pdf"
-                download
-                className="text-gradient btn-link"
-              >
+              <a href="/Resume.pdf" download className="text-gradient btn-link">
                 Download Resume
               </a>
             </div>
