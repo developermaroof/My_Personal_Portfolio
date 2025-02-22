@@ -24,6 +24,7 @@ import NokoSocial from "../assets/projects/nokoSocial.png";
 import University from "../assets/projects/university.png";
 import Manage from "../assets/projects/manage.png";
 import devnito20 from "../assets/projects/devnito2.0.png";
+import tailortap from "../assets/projects/tailortap.png";
 
 const images = [
   {
@@ -158,6 +159,13 @@ const images = [
     tech: "React.js, Tailwind CSS",
     github: "https://github.com/developermaroof/devnito2.0",
     website: "https://devnito.netlify.app/",
+  },
+  {
+    src: tailortap,
+    title: "Tailor Tap",
+    tech: "React.js, Tailwind CSS, Firebase, Cloudinary",
+    github: "https://github.com/developermaroof/project-tailortap",
+    website: "https://tailortap.netlify.app/",
   },
 ];
 
