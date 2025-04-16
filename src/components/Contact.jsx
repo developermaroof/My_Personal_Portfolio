@@ -42,7 +42,9 @@ const Contact = React.memo(() => {
       form.reset();
     } catch (error) {
       console.error("Message failed to send:", error);
-      toast.error("Failed to send message. Please try again later.", { autoClose: 5000 });
+      toast.error("Failed to send message. Please try again later.", {
+        autoClose: 5000,
+      });
     }
   };
 
